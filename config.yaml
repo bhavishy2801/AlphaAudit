@@ -1,0 +1,42 @@
+seed: 42
+
+data:
+  source: auto
+  sample_start: "1965-01"
+  sample_end:   "2024-12"
+  n_anomalies:  120
+  min_oos_months: 24
+  
+synthetic_population:
+  robust: 0.15
+  decays: 0.40
+  regime_dependent: 0.25
+  "false": 0.20
+
+statistics:
+  annualization: 12
+  sharpe_significance: 2.0
+  dsr_threshold: 0.95
+  fdr_alpha: 0.05
+  hlz_target_fdr: 0.05
+
+pbo:
+  n_splits: 16
+  metric: sharpe
+
+regimes:
+  vol_tercile_labels: ["Low Vol", "Mid Vol", "High Vol"]
+  rate_labels: ["Falling Rates", "Rising Rates"]
+  structural_break: "2018-01"
+  break_labels: ["Pre-2018", "Post-2018"]
+  robust_min_partitions: 3
+
+costs:
+  bps_per_turnover: 10  # one-way transaction cost stub (bps), scaled by turnover
+  apply_costs: true
+
+output:
+  results_json: "results/results.json"
+  summary_csv:  "results/summary_table.csv"
+  figures_dir:  "results/figures"
+  dashboard_data: "dashboard/public/results.json"
