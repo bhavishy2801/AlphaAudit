@@ -44,10 +44,10 @@ def _verdict(
     float,bh_sig:bool,regime_verdict: str,dsr_threshold: float,)->str:
     if not np.isfinite(oos_sharpe) or oos_sharpe<=0 or oos_t<=0:
         return "Dead"
-    survives_stats=(dsr_oos >= dsr_threshold) and bh_sig
+    survives_stats=(dsr_oos>=dsr_threshold) and bh_sig
     if survives_stats and regime_verdict=="Robust":
         return "Robust"
-    if regime_verdict in ("Robust","Regime-dependent") and oos_t >= 2.0:
+    if regime_verdict in ("Robust","Regime-dependent") and oos_t>=2.0:
         return "Regime-dependent"
     return "Decayed"
 
@@ -197,7 +197,7 @@ def run_audit(ds: Dataset,cfg: Config,verbose: bool=True)->AuditResults:
         "fdr_alpha": fdr_alpha,
         "naive_t_hurdle": naive_t,
         "n_naive_significant": int(np.sum([
-            (r["oos_tstat"] or -9) >= naive_t for r in records
+            (r["oos_tstat"] or -9)>=naive_t for r in records
         ])),
         "bh": {
             "n_significant": bh.n_significant,
@@ -280,10 +280,10 @@ def _f(x)->float | None:
 def _build_funnel(records,naive_t,dsr_threshold,robust_min)->list[dict]:
     n=len(records)
     passes_oos_pos=np.array([(r["oos_sharpe"] or -9)>0 for r in records])
-    passes_t2=np.array([(r["oos_tstat"] or -9) >= naive_t for r in records])
+    passes_t2=np.array([(r["oos_tstat"] or -9)>=naive_t for r in records])
     passes_bh=np.array([r["bh_significant"] for r in records])
     passes_regime=np.array([r["regime_verdict"]=="Robust" for r in records])
-    passes_dsr=np.array([(r["dsr_oos"] or 0) >= dsr_threshold for r in records])
+    passes_dsr=np.array([(r["dsr_oos"] or 0)>=dsr_threshold for r in records])
 
     c1=passes_oos_pos
     c2=c1 & passes_t2
@@ -296,8 +296,8 @@ def _build_funnel(records,naive_t,dsr_threshold,robust_min)->list[dict]:
         ("OOS Sharpe>0",int(c1.sum()),"Edge still positive after the publication date"),
         ("OOS t>2.0 (naive)",int(c2.sum()),"Clears the naive significance bar"),
         ("Survives BH-FDR",int(c3.sum()),"Significant after Benjamini-Hochberg multiple-testing control"),
-        ("Regime-robust",int(c4.sum()),f"Significant on both sides of >= {robust_min} macro axes"),
-        ("Deflated-Sharpe significant",int(c5.sum()),f"P[true SR>0] >= {dsr_threshold:g} after deflating for {n} trials"),
+        ("Regime-robust",int(c4.sum()),f"Significant on both sides of>={robust_min} macro axes"),
+        ("Deflated-Sharpe significant",int(c5.sum()),f"P[true SR>0]>={dsr_threshold:g} after deflating for {n} trials"),
     ]
     return [
         {"stage": s,"count": c,"pct": round(100*c/n,1),"desc": d}
@@ -319,7 +319,7 @@ def _build_summary(records,pbo_res,bh,ds: Dataset,min_oos)->dict:
         "n_regime_dependent": int((verdicts=="Regime-dependent").sum()),
         "n_decayed": int((verdicts=="Decayed").sum()),
         "n_dead": int((verdicts=="Dead").sum()),
-        "pct_survive_naive": _f(100*np.mean([(r["oos_tstat"] or -9) >= 2.0 for r in records])),
+        "pct_survive_naive": _f(100*np.mean([(r["oos_tstat"] or -9)>=2.0 for r in records])),
         "pct_survive_bh": _f(100*bh.n_significant/n),
         "verdict_counts": verdicts.value_counts().to_dict(),
     }

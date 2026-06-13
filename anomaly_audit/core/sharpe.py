@@ -14,8 +14,8 @@ Why deflate?
 ------------
 If you try ``N`` strategies,the *best* one's Sharpe is inflated purely by
 selection. The DSR replaces the usual zero benchmark in the PSR with
-``E[max SR]`` - the Sharpe you would expect the luckiest of ``N`` truly worthless
-strategies to post - and asks whether the observed Sharpe still clears it. It
+``E[max SR]``-the Sharpe you would expect the luckiest of ``N`` truly worthless
+strategies to post-and asks whether the observed Sharpe still clears it. It
 also corrects for short samples and for non-normal (skewed/fat-tailed)
 returns. The output is a probability that the *true* Sharpe is positive.
 """

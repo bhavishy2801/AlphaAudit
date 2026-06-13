@@ -4,8 +4,8 @@ Macro-regime construction and regime-conditional re-estimation.
 This is the project's original contribution. The objection a reviewer will
 raise is *"your regimes are curve-fit."* The defence,baked into the design
 here,is that regimes are defined from **exogenous macro variables fixed in
-advance** - volatility terciles,the sign of the rate trend,and a structural
-break date - never optimized on anomaly returns.
+advance**-volatility terciles,the sign of the rate trend,and a structural
+break date-never optimized on anomaly returns.
 
 For every anomaly we re-estimate its Sharpe and t-statistic *within* each regime
 and classify it as:
@@ -48,11 +48,11 @@ def build_regimes(macro: pd.DataFrame,cfg: dict)->pd.DataFrame:
     # Rate trend: sign of the trailing 12-month change in the short rate.
     rate_change=macro["rate"].diff(12)
     rising,falling=cfg["rate_labels"][1],cfg["rate_labels"][0]
-    out["rate_regime"]=np.where(rate_change >= 0,rising,falling)
+    out["rate_regime"]=np.where(rate_change>=0,rising,falling)
     # first 12 months have no trailing change->mark by current vs first level
     seed_mask=rate_change.isna()
     out.loc[seed_mask,"rate_regime"]=np.where(
-        macro["rate"][seed_mask] >= macro["rate"].iloc[0],rising,falling
+        macro["rate"][seed_mask]>=macro["rate"].iloc[0],rising,falling
     )
 
     # Structural break (pre/post microstructure shift).
@@ -112,7 +112,7 @@ class RegimeVerdict:
     significant buckets. A macro axis (e.g. volatility) is "spanned" only if the
     anomaly is significant on **both** of its opposing sides (Low *and* High
     vol). An anomaly that earns its alpha only in high-volatility months is
-    therefore correctly flagged regime-dependent,not robust - exactly the
+    therefore correctly flagged regime-dependent,not robust-exactly the
     distinction the project exists to draw.
     """
 
@@ -159,7 +159,7 @@ def conditional_performance(
         else:
             sr=metrics.sharpe_ratio(sub,periods_per_year)
             t=metrics.t_statistic(sub)
-            sig=bool(np.isfinite(t) and abs(t) >= sig_t and sr>0)
+            sig=bool(np.isfinite(t) and abs(t)>=sig_t and sr>0)
             stat=RegimeStat(regime,int(sub.size),sr,t,sig)
             if sig:
                 n_sig+=1
@@ -172,9 +172,9 @@ def conditional_performance(
     ]
     n_spanned=len(spanned_axes)
 
-    if n_spanned >= robust_min_partitions:
+    if n_spanned>=robust_min_partitions:
         verdict="Robust"
-    elif n_sig >= 1:
+    elif n_sig>=1:
         verdict="Regime-dependent"
     else:
         verdict="Dead"

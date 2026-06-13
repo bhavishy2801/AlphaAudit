@@ -77,7 +77,7 @@ def load_osap(cfg: Config)->Dataset:
     panel=pred.apply(pd.to_numeric,errors="coerce")/100.0
     start=pd.Period(cfg.data["sample_start"],freq="M")
     end=pd.Period(cfg.data["sample_end"],freq="M")
-    panel=panel.loc[(panel.index >= start) & (panel.index<=end)]
+    panel=panel.loc[(panel.index>=start) & (panel.index<=end)]
     doc=pd.read_csv(doc_path)
     doc.columns=[c.strip() for c in doc.columns]
     acro_col="Acronym" if "Acronym" in doc.columns else doc.columns[0]

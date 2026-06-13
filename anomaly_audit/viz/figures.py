@@ -127,7 +127,7 @@ def fig_pbo(results: AuditResults,path: Path):
     colors=[BAD if c<0 else GOOD for c in centers]
     ax.bar(centers,counts,width=widths*0.95,color=colors,alpha=0.85,zorder=3,edgecolor="white")
     ax.axvline(0,color=INK,lw=1.4,zorder=4)
-    ax.set_xlabel("Logit  ln(w/(1-w))   - negative=IS-best underperforms OOS",color=INK,fontsize=10)
+    ax.set_xlabel("Logit  ln(w/(1-w))  -negative=IS-best underperforms OOS",color=INK,fontsize=10)
     ax.set_ylabel("Combinatorial splits",color=INK,fontsize=10)
     ax.set_title(f"CSCV overfitting distribution   ·   PBO={pbo['pbo']:.2f}"
                  f"  (placebo {pbo['pbo_placebo']:.2f})",
