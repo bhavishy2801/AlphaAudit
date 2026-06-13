@@ -75,7 +75,7 @@ def write_markdown_report(results: AuditResults,cfg: Config)->Path:
     lines.append("")
     lines.append("*A reproducibility audit with deflated Sharpe ratios and overfitting diagnostics.*")
     lines.append("")
-    lines.append(f"> **Auto-generated from `results.json` on {m['generated_at']}.** "
+    lines.append(f">**Auto-generated from `results.json` on {m['generated_at']}.** "
                  f"Data source: **{m['data_source']}** · {m['n_anomalies']} anomalies · "
                  f"{m['sample_start']} to {m['sample_end']} ({m['n_months']} months) · seed {m['seed']}.")
     lines.append("")
@@ -105,7 +105,7 @@ def write_markdown_report(results: AuditResults,cfg: Config)->Path:
     lines.append("")
     lines.append(
         f"- Median decay ratio (OOS Sharpe/IS Sharpe): **{num(s['median_decay_ratio'])}**\n"
-        f"- Share of anomalies that lost >50% of their Sharpe: **{pct(s['pct_decayed'])}**"
+        f"- Share of anomalies that lost>50% of their Sharpe: **{pct(s['pct_decayed'])}**"
     )
     lines.append("")
     lines.append("![Decay distribution](figures/decay_distribution.png)")
@@ -145,7 +145,7 @@ def write_markdown_report(results: AuditResults,cfg: Config)->Path:
         lines.append(f"| {k} | {s['verdict_counts'].get(k,0)} |")
     lines.append("")
     if m.get("has_ground_truth"):
-        lines.append("> Because this run used the calibrated synthetic universe,the audit's "
+        lines.append(">Because this run used the calibrated synthetic universe,the audit's "
                      "verdicts can be checked against the planted ground truth- see "
                      "`results.json->summary.ground_truth_counts` and the confusion "
                      "matrix in the notebook.")
