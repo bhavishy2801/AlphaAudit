@@ -1,0 +1,36 @@
+[build-system]
+requires=["setuptools>=61"]
+build-backend="setuptools.build_meta"
+
+[project]
+name="alpha-audit"
+version="1.0.0"
+description="A reproducibility audit of published equity anomalies: deflated Sharpe, PBO/CSCV, multiple-testing and regime conditioning."
+readme="README.md"
+requires-python=">=3.10"
+license={ text="MIT" }
+authors=[{ name="Bhavishy Agrawal" }]
+keywords=["quant", "finance", "anomalies", "deflated-sharpe", "backtest-overfitting", "reproducibility"]
+dependencies=[
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scipy>=1.10",
+    "statsmodels>=0.14",
+    "matplotlib>=3.7",
+    "pyyaml>=6.0",
+    "requests>=2.28",
+]
+
+[project.optional-dependencies]
+dev=["pytest>=7.0", "jupyter>=1.0", "nbconvert>=7.0"]
+
+[project.scripts]
+alpha-audit="run_all:main"
+
+[tool.setuptools]
+packages=["anomaly_audit"]
+
+[tool.pytest.ini_options]
+testpaths=["tests"]
+addopts="-q"
+filterwarnings=["ignore::DeprecationWarning"]

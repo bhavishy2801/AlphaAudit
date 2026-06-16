@@ -23,7 +23,7 @@ Of **120 published anomalies**, **6 (5.0%)** clear every hurdle- positive out-of
 
 ## Post-publication decay (McLean-Pontiff)
 
-- Median decay ratio (OOS Sharpe / IS Sharpe): **0.35**
+- Median decay ratio (OOS Sharpe/IS Sharpe): **0.35**
 - Share of anomalies that lost>50% of their Sharpe: **60.0%**
 
 ![Decay distribution](figures/decay_distribution.png)
