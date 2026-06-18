@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-slate-200 font-sans antialiased;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* ---- animated background field --------------------------------------- */
+.bg-field {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(60rem 60rem at 15% -10%,rgba(99,102,241,0.16),transparent 60%),
+    radial-gradient(50rem 50rem at 100% 0%,rgba(34,211,238,0.12),transparent 55%),
+    radial-gradient(40rem 40rem at 50% 120%,rgba(168,85,247,0.1),transparent 60%),
+    #05070d;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 100% 60% at 50% 0%,#000 30%,transparent 80%);
+  pointer-events: none;
+}
+
+/* ---- glass card ------------------------------------------------------- */
+.glass {
+  @apply bg-panel/70 border border-line/80 backdrop-blur-xl;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.035),
+    rgba(255,255,255,0)
+  );
+}
+
+.card {
+  @apply glass rounded-2xl shadow-card;
+}
+
+/* gradient text */
+.grad-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(100deg,#fff 0%,#a5b4fc 45%,#22d3ee 100%);
+}
+
+.grad-accent {
+  background-image: linear-gradient(100deg,#6366f1,#22d3ee);
+}
+
+/* thin scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1020;
+}
+::-webkit-scrollbar-thumb {
+  background: #232c49;
+  border-radius: 999px;
+  border: 2px solid #0b1020;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #324069;
+}
+
+/* chip */
+.chip {
+  @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+}
+
+/* shimmering skeleton */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  @apply bg-panel2/60;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.06),
+    transparent
+  );
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* number ticker uses tabular figures */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* focus ring */
+*:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
