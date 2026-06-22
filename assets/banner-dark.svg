@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" font-family="'Segoe UI',Inter,system-ui,sans-serif">
+  <defs>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.5" stop-color="#a5b4fc"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0.12" cy="-0.1" r="0.7">
+      <stop offset="0" stop-color="#6366f1" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="1" cy="0" r="0.7">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="360" rx="18" fill="#05070D"/>
+  <rect width="1200" height="360" rx="18" fill="url(#grid)"/>
+  <rect width="1200" height="360" rx="18" fill="url(#glowA)"/>
+  <rect width="1200" height="360" rx="18" fill="url(#glowB)"/>
+
+  <!-- logo mark -->
+  <g transform="translate(60,52)">
+    <rect width="46" height="46" rx="12" fill="url(#accent)"/>
+    <path d="M9 33 L20 21 L27 27 L39 12" fill="none" stroke="#05070D" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="120" y="86" font-size="22" font-weight="600" fill="#cbd5e1" letter-spacing="3">ALPHAAUDIT</text>
+
+  <!-- title -->
+  <text x="60" y="168" font-size="62" font-weight="800" fill="url(#title)">Do equity anomalies survive?</text>
+  <text x="62" y="205" font-size="21" fill="#8A93A6">A reproducibility audit of the published equity-anomaly literature &#8212; out-of-sample,and across market regimes.</text>
+
+  <!-- stat pills -->
+  <g transform="translate(60,236)">
+    <g>
+      <rect width="200" height="74" rx="14" fill="#0B1020" stroke="#1E263F"/>
+      <text x="18" y="40" font-size="30" font-weight="800" fill="#22D3EE">120</text>
+      <text x="18" y="60" font-size="12.5" fill="#8A93A6">anomalies audited</text>
+    </g>
+    <g transform="translate(214,0)">
+      <rect width="200" height="74" rx="14" fill="#0B1020" stroke="#1E263F"/>
+      <text x="18" y="40" font-size="30" font-weight="800" fill="#10B981">6 &#183; 5%</text>
+      <text x="18" y="60" font-size="12.5" fill="#8A93A6">survive every hurdle</text>
+    </g>
+    <g transform="translate(428,0)">
+      <rect width="200" height="74" rx="14" fill="#0B1020" stroke="#1E263F"/>
+      <text x="18" y="40" font-size="30" font-weight="800" fill="#F59E0B">65%</text>
+      <text x="18" y="60" font-size="12.5" fill="#8A93A6">median Sharpe lost</text>
+    </g>
+    <g transform="translate(642,0)">
+      <rect width="200" height="74" rx="14" fill="#0B1020" stroke="#1E263F"/>
+      <text x="18" y="40" font-size="30" font-weight="800" fill="#A78BFA">0.01</text>
+      <text x="18" y="60" font-size="12.5" fill="#8A93A6">overfitting prob. (PBO)</text>
+    </g>
+  </g>
+
+  <!-- funnel motif (right) -->
+  <g transform="translate(905,232)" opacity="0.95">
+    <rect y="0"  width="230" height="12" rx="6" fill="url(#accent)" opacity="1"/>
+    <rect y="18" width="192" height="12" rx="6" fill="url(#accent)" opacity="0.82"/>
+    <rect y="36" width="120" height="12" rx="6" fill="url(#accent)" opacity="0.64"/>
+    <rect y="54" width="86"  height="12" rx="6" fill="url(#accent)" opacity="0.46"/>
+    <rect y="72" width="38"  height="12" rx="6" fill="url(#accent)" opacity="0.30"/>
+  </g>
+
+  <text x="60" y="338" font-size="13" fill="#5B6472" letter-spacing="0.4">Deflated Sharpe Ratio  &#8226;  Probability of Backtest Overfitting (CSCV)  &#8226;  Multiple-Testing Correction  &#8226;  Regime Conditioning</text>
+</svg>
