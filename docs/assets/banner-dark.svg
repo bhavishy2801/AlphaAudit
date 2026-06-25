@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" font-family="'Segoe UI',Inter,system-ui,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" font-family="'Segoe UI', Inter, system-ui, sans-serif">
   <defs>
     <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#ffffff"/>
@@ -36,7 +36,7 @@
 
   <!-- title -->
   <text x="60" y="168" font-size="62" font-weight="800" fill="url(#title)">Do equity anomalies survive?</text>
-  <text x="62" y="205" font-size="21" fill="#8A93A6">A reproducibility audit of the published equity-anomaly literature &#8212; out-of-sample,and across market regimes.</text>
+  <text x="62" y="205" font-size="21" fill="#8A93A6">A reproducibility audit of the published equity-anomaly literature &#8212; out-of-sample, and across market regimes.</text>
 
   <!-- stat pills -->
   <g transform="translate(60,236)">
