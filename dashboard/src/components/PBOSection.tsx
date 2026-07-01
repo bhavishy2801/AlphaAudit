@@ -19,7 +19,7 @@ export default function PBOSection({ data }: { data: Results }) {
       <SectionHeading
         eyebrow="Bailey · Borwein · López de Prado · Zhu"
         title="Probability of backtest overfitting"
-        blurb="Combinatorially Symmetric Cross-Validation asks: when you pick the strategy that looks best in-sample,how often does it land in the bottom half out-of-sample? That failure rate is the PBO."
+        blurb="Combinatorially Symmetric Cross-Validation asks: when you pick the strategy that looks best in-sample, how often does it land in the bottom half out-of-sample? That failure rate is the PBO."
       />
 
       <div className="grid gap-4 lg:grid-cols-5">
@@ -40,9 +40,9 @@ export default function PBOSection({ data }: { data: Results }) {
           <p className="mt-4 text-xs leading-relaxed text-sub">
             The placebo of pure-noise strategies returns PBO ≈{" "}
             <strong className="text-slate-200">{fmt(pbo.pbo_placebo,2)}</strong>- exactly
-            the coin-flip a correct implementation must produce,validating the routine.
-            The real panel sits far below,so its in-sample winner is{" "}
-            <strong className="text-good">not</strong>a pure artifact of selection.
+            the coin-flip a correct implementation must produce, validating the routine.
+            The real panel sits far below, so its in-sample winner is{" "}
+            <strong className="text-good">not</strong> a pure artifact of selection.
           </p>
         </Card>
 

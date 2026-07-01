@@ -43,7 +43,7 @@ export default function RegimeSection({ data }: { data: Results }) {
       <SectionHeading
         eyebrow="The original contribution"
         title="Regime-conditional survival"
-        blurb="Regimes are defined from exogenous macro variables fixed in advance- volatility terciles,the rate trend,a microstructure break- never optimized on returns. An anomaly is robust only if it works across the full span of each axis,not in one lucky corner."
+        blurb="Regimes are defined from exogenous macro variables fixed in advance- volatility terciles, the rate trend, a microstructure break- never optimized on returns. An anomaly is robust only if it works across the full span of each axis, not in one lucky corner."
       />
 
       <Card>

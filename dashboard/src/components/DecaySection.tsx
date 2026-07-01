@@ -37,7 +37,7 @@ export default function DecaySection({ data }: { data: Results }) {
       <SectionHeading
         eyebrow="McLean–Pontiff"
         title="Post-publication decay"
-        blurb="Split each anomaly at its publication year: in-sample before,out-of-sample after. The decay ratio is OOS Sharpe ÷ IS Sharpe. Arbitrage tends to trade a public edge away- and it shows."
+        blurb="Split each anomaly at its publication year: in-sample before, out-of-sample after. The decay ratio is OOS Sharpe ÷ IS Sharpe. Arbitrage tends to trade a public edge away- and it shows."
       />
 
       <div className="grid gap-4 lg:grid-cols-5">

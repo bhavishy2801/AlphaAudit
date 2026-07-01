@@ -52,7 +52,7 @@ export default function ExplorerSection({ data }: { data: Results }) {
       <SectionHeading
         eyebrow="Drill down"
         title="Anomaly explorer"
-        blurb="Every anomaly in the study,one click away. Filter,sort,then open any signal to see its in-sample/out-of-sample equity curve,deflated Sharpe,and full regime breakdown."
+        blurb="Every anomaly in the study, one click away. Filter, sort, then open any signal to see its in-sample/out-of-sample equity curve, deflated Sharpe, and full regime breakdown."
       />
 
       {/* controls */}
@@ -153,7 +153,7 @@ export default function ExplorerSection({ data }: { data: Results }) {
           )}
         </div>
         <div className="border-t border-line/70 px-4 py-2.5 text-xs text-sub">
-          Showing <span className="font-semibold text-slate-300">{rows.length}</span>of {data.anomalies.length} anomalies
+          Showing <span className="font-semibold text-slate-300">{rows.length}</span> of {data.anomalies.length} anomalies
         </div>
       </div>
 

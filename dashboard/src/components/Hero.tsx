@@ -35,7 +35,7 @@ export default function Hero({ data }: { data: Results }) {
             className="mt-6 max-w-4xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl"
          >
             Do published equity anomalies{" "}
-            <span className="grad-text">survive out-of-sample</span>and across{" "}
+            <span className="grad-text">survive out-of-sample</span> and across{" "}
             <span className="grad-text">market regimes?</span>
           </motion.h1>
 
@@ -45,7 +45,7 @@ export default function Hero({ data }: { data: Results }) {
          >
             A systematic replication of{" "}
             <strong className="text-slate-200">{data.meta.n_anomalies}</strong>{" "}
-            published anomalies,auditing how many keep their edge after the
+            published anomalies, auditing how many keep their edge after the
             publication date and once you correct for the statistics of testing
             hundreds of signals at once.
           </motion.p>

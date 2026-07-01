@@ -9,10 +9,10 @@ export default function MultipleTestingSection({ data }: { data: Results }) {
   const tMax=4.2;
 
   const methods=[
-    { name: "Naive bar",t: mt.naive_t_hurdle,n: mt.n_naive_significant,color: "#EF4444",note: "t>2.0,ignores the search" },
+    { name: "Naive bar",t: mt.naive_t_hurdle,n: mt.n_naive_significant,color: "#EF4444",note: "t>2.0, ignores the search" },
     { name: "Benjamini–Hochberg",t: mt.bh.implied_t_hurdle,n: mt.bh.n_significant,color: "#F59E0B",note: `FDR control @ ${mt.fdr_alpha}` },
     { name: "Holm",t: mt.holm.implied_t_hurdle,n: mt.holm.n_significant,color: "#22D3EE",note: "step-down FWER" },
-    { name: "Bonferroni",t: mt.bonferroni.implied_t_hurdle,n: mt.bonferroni.n_significant,color: "#A78BFA",note: "family-wise,strictest" },
+    { name: "Bonferroni",t: mt.bonferroni.implied_t_hurdle,n: mt.bonferroni.n_significant,color: "#A78BFA",note: "family-wise, strictest" },
   ];
 
   return (
